@@ -1,0 +1,114 @@
+@model SportsORM.Models.League
+<div class="card">
+    <div class="card-header bg-dark text-light">Level 1</div>
+    <div class="card-body">
+        <p>Using the SportsORM, complete all the following queries and show their results on Level1.cshtml.</p>
+        <ol>
+            <li>...all womens' leagues</li>
+            @{
+                foreach (var league in ViewBag.Womens)
+                {
+                    <p>@league.Name</p>
+                }
+            }
+            <li>...all leagues where sport is any type of hockey</li>
+            @{
+                foreach (var league in ViewBag.Hockey)
+                {
+                    <p>@league.Name</p>
+                }
+            }
+            <li>...all leagues where sport is something OTHER THAN football</li>
+            @{
+                foreach (var league in ViewBag.Football)
+                {
+                    <p>@league.Name</p>
+                }
+            }
+            <li>...all leagues that call themselves "conferences"</li>
+            @{
+                foreach (var league in ViewBag.Conference)
+                {
+                    <p>@league.Name</p>
+                }
+            }
+            <li>...all leagues in the Atlantic region</li>
+            @{
+                foreach (var league in ViewBag.Atlantic)
+                {
+                    <p>@league.Name</p>
+                }
+            }
+            <li>...all teams based in Dallas</li>
+            @{
+                foreach (var team in ViewBag.Dallas)
+                {
+                    <p>@team.Location @team.TeamName</p>
+                }
+            }
+            <li>...all teams named the Raptors</li>
+            @{
+                foreach (var team in ViewBag.Raptors)
+                {
+                    <p>@team.Location @team.TeamName</p>
+                }
+            }
+            <li>...all teams whose Location includes "City"</li>
+            @{
+                foreach (var team in ViewBag.HasACity)
+                {
+                    <p>@team.Location @team.TeamName</p>
+                }
+            }
+            <li>...all teams whose names begin with "T"</li>
+            @{
+                foreach (var team in ViewBag.StartsWithT)
+                {
+                    <p>@team.Location @team.TeamName</p>
+                }
+            }
+            <li>...all teams, ordered alphabetically by Location</li>
+            @{
+                foreach (var team in ViewBag.OrderedByLocation)
+                {
+                    <p>@team.Location @team.TeamName</p>
+                }
+            }
+            <li>...all teams, ordered by team name in reverse alphabetical order</li>
+            @{
+                foreach (var team in ViewBag.DecendingTeamName)
+                {
+                    <p>@team.Location @team.TeamName</p>
+                }
+            }
+            <li>...every player with last name "Cooper"</li>
+            @{
+                foreach (var player in ViewBag.CooperPlayers)
+                {
+                    <p>@player.FirstName @player.LastName</p>
+                }
+            }
+            <li>...every player with first name "Joshua"</li>
+            @{
+                foreach (var player in ViewBag.FirstNameJoshua)
+                {
+                    <p>@player.FirstName @player.LastName</p>
+                }
+            }
+            <li>...every player with last name "Cooper" EXCEPT those with "Joshua" as the first name</li>
+            @{
+                foreach (var player in ViewBag.CooperNotJosh)
+                {
+                    <p>@player.FirstName @player.LastName</p>
+                }
+            }
+            <li>...all players with first name "Alexander" OR first name "Wyatt"</li>
+            @{
+                foreach (var player in ViewBag.AlexanderOrWyatt)
+                {
+                    <p>@player.FirstName @player.LastName</p>
+                }
+            }
+        </ol>
+    </div>
+</div>

@@ -1,0 +1,65 @@
+<div class="card">
+    <div class="card-header bg-dark text-light">Level 3</div>
+    <div class="card-body">
+        <p>Using the SportsORM, complete all the following queries and show their results on Level3.cshtml.</p>
+        <ol>
+            <li>...all teams, past and present, that Samuel Evans has played with</li>
+            
+            @if (ViewBag.SamEvans != null)
+            {
+                @foreach (var team in ViewBag.SamEvans.AllTeams)
+                {
+                    <p>@team.TeamOfPlayer.Location @team.TeamOfPlayer.TeamName</p>
+                }
+            }
+            <li>...all players, past and present, with the Manitoba Tiger-Cats</li>
+            @if (ViewBag.Manitoba != null)
+            {
+                foreach (var player in ViewBag.Manitoba)
+                {
+                    <p>@player.FirstName @player.LastName</p>
+                }
+            }
+            <li>...all players who were formerly (but aren't currently) with the Wichita Vikings</li>
+            @{
+                foreach (var player in ViewBag.NotWichita)
+                {
+                    <p>@player.FirstName @player.LastName</p>
+                }
+            }
+            <li>...every team that Jacob Gray played for before he joined the Oregon Colts</li>
+            @{
+                foreach (var team in ViewBag.GrayNotColts)
+                {
+                    <p>@team.Location @team.TeamName</p>
+                }
+            }
+            <li>...everyone named "Joshua" who has ever played in the Atlantic Federation of Amateur Baseball Players</li>
+            
+            @{
+                if (ViewBag.JoshAFABP != null)
+                {
+                    foreach (var player in ViewBag.JoshAFABP)
+                    {
+                        <p>@player.PlayerOnTeam.FirstName @player.PlayerOnTeam.LastName</p>
+                    }
+                }
+            }
+            <li>...all teams that have had 12 or more players, past and present.</li>
+            @if (ViewBag.MorePlayers != null)
+            {
+                foreach (var team in ViewBag.MorePlayers)
+                {
+                    <p>@team.Location @team.TeamName </p>
+                }
+            }
+            <li>...all players, sorted by the number of teams they've played for</li>
+            @{
+                foreach (Player player in ViewBag.PlayerSort)
+                {
+                    <p>@player.FirstName @player.LastName</p>
+                }
+            }    
+        </ol>
+    </div>
+</div>

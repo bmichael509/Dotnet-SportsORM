@@ -1,0 +1,68 @@
+<div class="card">
+    <div class="card-header bg-dark text-light">Level 2</div>
+    <div class="card-body">
+        <p>Using the SportsORM, complete all the following queries and show their results on Level2.cshtml.</p>
+        <ol>
+            <li>...all teams in the Atlantic Soccer Conference</li>
+            @{
+                foreach (var team in ViewBag.AtlanticSoccer)
+                {
+                    <p>@team.TeamName</p>
+                }
+            }
+            <li>...all (current) players on the Boston Penguins (Hint: Boston is the Location, Penguins is the TeamName)</li>
+            @{
+                foreach (var player in ViewBag.PenguinsPlayers)
+                {
+                    <p>@player.FirstName @player.LastName</p>
+                }
+            }
+            <li>...all (current) players in the International Collegiate Baseball Conference</li>
+            @{
+                foreach (var player in ViewBag.ICBCPlayers)
+                {
+                    <p>@player.FirstName @player.LastName</p>
+                }
+            }
+            <li>...all (current) players in the American Conference of Amateur Football with last name "Lopez"</li>
+            @* Trying to see the other logical choices where I can filter on the cshtml page. *@
+            @{
+                foreach (var player in ViewBag.LopezPlayers)
+                {
+                    if(player.LastName == "Lopez")
+                    {
+                        <p>@player.FirstName @player.LastName</p>
+                    }
+                }
+            }
+            <li>...all football players</li>
+            @{
+                foreach (var player in ViewBag.Football)
+                {
+                    <p>@player.FirstName @player.LastName</p>
+                }
+            }
+            <li>...all teams with a (current) player named "Sophia"</li>
+            @{
+                foreach (var team in ViewBag.SophiaTeams)
+                {
+                    <p>@team.TeamName</p>
+                }
+            }
+            <li>...all leagues with a (current) player named "Sophia"</li>
+            @{
+                foreach (var League in ViewBag.SophiaLeagues)
+                {
+                    <p>@League.Name</p>
+                }
+            }
+            <li>...everyone with the last name "Flores" who DOESN'T (currently) play for the Washington Roughriders</li>
+            @{
+                foreach (var player in ViewBag.NotWashingtonFlores)
+                {
+                    <p>@player.FirstName @player.LastName</p>
+                }
+            }
+        </ol>
+    </div>
+</div>
